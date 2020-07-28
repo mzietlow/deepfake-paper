@@ -1,3 +1,13 @@
+\RequirePackage{silence}
+\WarningFilter{scrbook}{Usage of package `fancyhdr'}  % Hepthesis issues
+\WarningFilter{scrbook}{Usage of package `tocbibind'} % Hepthesis issues
+\WarningFilter{biblatex}{File }  % Bei Gelegenheit gegenprüfen!
+\WarningFilter{tocbasic}{`tocbibind' redefinition of `\listoffigures'}
+\WarningFilter{tocbasic}{`tocbibind' redefinition of `\listoftables'} 
+\WarningFilter{chktex}{You should perhaps use `\min' instead.} % unfortunately -
+\WarningFilter{chktex}{You should perhaps use `\max' instead.} % - doesn't work
+\WarningFilter{latex}{Marginpar on page} % due to todonotes
+\WarningFilter{LaTeX}{Command }
 \documentclass{akdai}
 
 % Language-Encoding und Font
@@ -11,10 +21,8 @@
 \addbibresource{BibLaTex/citation_db.bib}
 \usepackage{verbatimbox}
 \usepackage{fancyvrb}
-\usepackage{caption}
+\usepackage[style=base]{caption}
 \usepackage{listings}           % refer to 'minted vs. texments vs. verbments'
-\newsavebox{\verbsavebox}
-\newsavebox{\mysavebox}
 \usepackage{xcolor}
 \usepackage{hyperref}           % Verlinkungen im Dokument
 \hypersetup{
@@ -111,6 +119,7 @@
 \usepackage[de-DE]{datetime2}   % Kalenderdaten in deutschem Format
 \usepackage{blindtext}          % Repräsentativer als Lorem Ipsum
 \usepackage{kantlipsum}         % Cooler als blindtext
+\setlength{\marginparwidth}{2cm}
 \usepackage[disable,textwidth=15mm]{todonotes} % Einfügen von Todos, Option: [disable]
 \usepackage[shortcuts]{extdash} % \=/ for nonbreaking dash
 \usepackage{url}
@@ -131,6 +140,7 @@
 	finn.wellershaus@nordakademie.de
 }
 \title{DeepFake}
+\makeglossaries{}             % makeglossaries <document-root ohne .tex> per cmd
 
 \begin{document}
 \maketitle
