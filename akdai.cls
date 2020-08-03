@@ -13,7 +13,7 @@
 \ProcessOptions
 
 % 10 pt
-\LoadClass[12pt,a4paper,fleqn]{article}
+\LoadClass[12pt,a4paper,fleqn,abstract=true]{scrartcl}
 % Blocksatz durch LaTeX-Default
 % Satzspiegel
 \setlength{\textheight}{222mm}
@@ -83,9 +83,9 @@
 }{\endquotation}  
 
 % άberschriften
-\renewcommand{\section}{\@startsection{section}{1}{\z@}%
+\renewcommand{\section}{\scr@startsection{section}{1}{\z@}%
   {2\baselineskip}{\baselineskip}{\fontsize{14}{17}\fontseries{b}\selectfont}}
-\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+\renewcommand{\subsection}{\scr@startsection{subsection}{2}{\z@}%
   {2\baselineskip}{\baselineskip}{\fontsize{12}{14}\fontseries{b}\selectfont}}
 % weitere nicht durch Formatvorlage geklδrt
 
@@ -122,17 +122,6 @@
     \hb@xt@1.8em{\hss\@makefnmark}{\fontsize{10}{12}\selectfont#1}}
 
 %
-\RequirePackage{listings}
-\lstloadlanguages{Java}
-\lstset{language=Java,keywordstyle=\bfseries,basewidth=5.5pt,xleftmargin=1.5cm,
- literate={φ}{{\"o}}1
-           {δ}{{\"a}}1
-           {ό}{{\"u}}1
-           {ά}{{\"U}}1
-           {Δ}{{\"A}}1
-           {Φ}{{\"O}}1
-           {ί}{{\3}}1
-}    
     
 % Gemutmaίte Absatzeinzόge und Abstδnde
 \parindent0pt
