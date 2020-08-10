@@ -13,6 +13,7 @@
         "-e16",
         "-q"
         ],
+    "languageTool.language": "en",
     "latex-workshop.latex.recipes": [
         {
             "name": "lualatex->biber->makeglossaries->lualatex",
