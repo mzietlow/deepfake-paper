@@ -6,7 +6,7 @@ prevention.
 A human on average blinks every two to ten seconds with a duration of \(0.1-0.4\) seconds~\cite{li_ictu_2018}.
 Based on this spontaneous eye blinking would be expected in DeepFake videos.
 This however is not always the case.
-An exmplanation for this circumstance lies in the training data for \gls{gan}s.
+An exmplanation for this circumstance lies in the training data for \glspl{gan}.
 As \textcite{li_ictu_2018} describe, with an exposure time of \(1/30\) of a second,
 the likelyhood of being captured on a picture while blinking is around \(7.5\%\)~\cite{li_ictu_2018}.
 In combination with the fact that most people might prefer pictures of them when they do not blink online,
@@ -16,6 +16,11 @@ a video being a DeepFake.
 
 Central for this process is a preprocessing phase which includes the detection of eyes and blinking.
 
+The next aspect is the prediction of an eyes new state, for this a \gls{lrcn}~\cite{donahue_long-term_2014} is used.
+This is because blinking of human eyes displays strong dependencies to previous and next images.
+The \gls{lrcn}-model enables capturing this by utilizing a combination of \glspl{cnn} and \glspl{lstm}~\cite{donahue_long-term_2014}.
+The \gls{cnn} is responsible for the feature detection, in this case the eye region into dricrimitave features~\cite{li_ictu_2018,donahue_long-term_2014}.
+The \gls{lstm} 
 
 \todo{In Ictu Oculi: Exposing AI Created Fake Videos by Detecting Eye Blinking}
 
