@@ -16,8 +16,12 @@ this oberservation, the frequency of blinking can be measured and result in a
 likelyhood of a video being a DeepFake.
 
 \par
-Central for this process is a preprocessing phase which includes the detection
-of eyes and blinking.
+In order for the determine the state of an eye, it its necessary to first determine
+where the eye is located. This is done in the preprocessing-phase. Here the facial
+landmarks of the pictures are extracted from each face area~\cite{li_ictu_2018}.
+To deal with changes in the orientation of the face, there is first an alignment
+of the face in a unified coordinate space which, provided it is not already,
+move the face to the center of the image~\cite{li_ictu_2018}.
 
 \par
 The next aspect is the prediction of an eyes new state, for this a \gls{lrcn}
@@ -25,9 +29,21 @@ The next aspect is the prediction of an eyes new state, for this a \gls{lrcn}
 displays strong dependencies to previous and next images. The \gls{lrcn}-model 
 enables capturing this by utilizing a combination of \glspl{cnn} and \glspl{lstm}
 ~\cite{donahue_long-term_2014}. The \gls{cnn} is responsible for the feature
-detection, in this case the eye region into dricrimitave features
+detection, in this case the eye region into discriminative features
 ~\cite{li_ictu_2018,donahue_long-term_2014}. 
-The \gls{lstm} 
+These are fed into the sequence learning which is implemented as a \gls{rnn} 
+with a \gls{lstm}. This enables considering information from previous eye states.
+The result of this step is then passed to another \gls{nn} containing a fully
+connected layer which generated the probability of an eye being closed or open~\cite{li_ictu_2018}.
+
+\par
+This is only an example of using physical human characteristics to determine a
+videos or pictures authenticity. \textcite{li_ictu_2018} themself describe in 
+their paper critically how this might be circumvented by improving the DeepFake
+generation models to also encorporate eye blinking. Here there are possibilities
+to on the one hand also check for frequency of blinking~\cite{li_ictu_2018} or 
+change to completely different approaches also used in medicine of checking skin
+color to check for heart rate or similar aspects~\cite{pishori_detecting_2020}.
 
 \todo{In Ictu Oculi: Exposing AI Created Fake Videos by Detecting Eye Blinking}
 
@@ -35,7 +51,7 @@ The \gls{lstm}
 The algorithms for creating DeepFakes might introduce artifacts in the resulting
 images. These artifacts can be used to discover DeepFakes and lay the foundation for
 this type of detection.
-\todo{Deepfake Video Detection throughOptical Flow Based CNN}
+\todo{Deepfake Video Detection through Optical Flow Based CNN}
 
 \subsection{Undirected Approaches}
 In this approach, the focus is not on the artifacts, but on training gerneric
