@@ -13,7 +13,7 @@
 \ProcessOptions
 
 % 10 pt
-\LoadClass[12pt,a4paper,fleqn,abstract=true]{scrartcl}
+\LoadClass[11pt,a4paper,fleqn,abstract=true]{scrartcl}
 % Blocksatz durch LaTeX-Default
 % Satzspiegel
 \setlength{\textheight}{222mm}
@@ -81,14 +81,6 @@
  \fontsize{9}{10}\selectfont
     \quotation\noindent{\bfseries \abstractname:}%
 }{\endquotation}  
-
-% άberschriften
-\renewcommand{\section}{\scr@startsection{section}{1}{\z@}%
-  {2\baselineskip}{\baselineskip}{\fontsize{14}{17}\fontseries{b}\selectfont}}
-\renewcommand{\subsection}{\scr@startsection{subsection}{2}{\z@}%
-  {2\baselineskip}{\baselineskip}{\fontsize{12}{14}\fontseries{b}\selectfont}}
-% weitere nicht durch Formatvorlage geklδrt
-
 
 % Bildunterschriften
 \long\def\@makecaption#1#2{%

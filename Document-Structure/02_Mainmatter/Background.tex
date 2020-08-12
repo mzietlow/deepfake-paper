@@ -1,15 +1,15 @@
 \section{Background}\label{sect:background}
 \subsection{DeepFakes}\label{subsect:deepfakes}
 In late 2017 \gls{redditor} \textit{deepfake} began publishing pornographic footage
-on \url{reddit.org/r/deepfakes}, where he replaced the actors faces, replacing
-them with those of (unconsenting) celebrities. He received increased media coverage
+on \url{https://www.reddit.com/r/deepfakes}, where he replaced the actors faces
+with those of (unconsenting) celebrities. He received increased media coverage
 in early 2018, after the release of a first article and interview on
 vice-motherboard~\cite{Cole.2017}. While he coined the term \textit{DeepFake}
 for face-\textit{replacement} and face-\textit{reenactment} technologies, both
 were already actively researched in academia with research dating to at least
 1997~\cite{Bregler.1997}.
 
-\par
+\subsubsection{DeepFakes and CheapFakes}
 In this work a further distinction between so called CheapFakes and DeepFakes is
 made. CheapFakes are produced by using contemporary video- and picture editing
 software. DeepFakes in contrast describe the results of machine learning algorithms,
@@ -21,6 +21,21 @@ The names simply refer to the different levels of sophistication of the differen
 approaches. Arguably at some point they might even melt together with editing software
 utilizing machine learning more and DeepFake technology becoming accessible and
 integrated into existing tooling.
+
+\subsubsection{Generalizability of Generative Models for DeepFakes}
+In the design of \glspl{nn} for the creation of DeepFakes, one must choose the
+circle of persons to which it is applicable:
+\begin{description}
+    \item[one-to-one] after training, the approach is applicable only to a
+    single target and driver
+    \item[many-to-one] after training, the approach is applicable only to a
+    single target, but arbitrary drivers
+    \item[many-to-many] after training, the approach is applicable both to
+    arbitrary targets and drivers
+\end{description}\cite[cf.][]{Mirsky.2020}
+In this paper only \textbf{many-to-many} approaches are presented because they
+are trained only once for an more general than \textbf{one-to-one} or \textbf{many-to-one}.
+
 \subsection{Detection}
 \subsection{Ethical Challenges}
 The importance DeepFake-Detection only gets elevated by the ethical challenges 
