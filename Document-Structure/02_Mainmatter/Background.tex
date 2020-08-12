@@ -1,44 +1,47 @@
-\section{Background}
-\subsection{DeepFakes}
-In this work we will distinguish between so called CheapFakes and DeepFakes.
-CheapFakes are the results of the usage of contemporary video and picture editing software.
-DeepFake in contrast describes the results of machine learning algorithms, most 
-often some form or combination of neural networks.
-The name CheapFake should under no circumstance be interpreted as an assesment of
-their effectiveness.
-They can still be used to effectively fool users, an example might be a video
-of US House Speaker Nancy Peloci which was slowed down for her to appear drunk \todo{add reference}.
-The names simply refer to the different levels of sophistication of the different approaches.
-Arguably at some point they might even melt together with picture and video editing software
-utilizing machine learning more and DeepFake technology becoming more accesscible and integrated
-into existing tooling.
+\section{Background}\label{sect:background}
+\subsection{DeepFakes}\label{subsect:deepfakes}
+In late 2017 \gls{redditor} \textit{deepfake} began publishing pornographic footage
+on \url{reddit.org/r/deepfakes}, where he replaced the actors faces, replacing
+them with those of (unconsenting) celebrities. He received increased media coverage
+in early 2018, after the release of a first article and interview on
+vice-motherboard~\cite{Cole.2017}. While he coined the term \textit{DeepFake}
+for face-\textit{replacement} and face-\textit{reenactment} technologies, both
+were already actively researched in academia with research dating to at least
+1997~\cite{Bregler.1997}.
+
+\par
+In this work a further distinction between so called CheapFakes and DeepFakes is
+made. CheapFakes are produced by using contemporary video- and picture editing
+software. DeepFakes in contrast describe the results of machine learning algorithms,
+most often some form or combination of neural networks. The name CheapFake should
+under no circumstance be interpreted as an assessment of their effectiveness.
+They can still be used to effectively fool users. An example might be a video
+of US House Speaker Nancy Pelosi which was slowed down for her to appear drunk\todo{add reference}.
+The names simply refer to the different levels of sophistication of the different
+approaches. Arguably at some point they might even melt together with editing software
+utilizing machine learning more and DeepFake technology becoming accessible and
+integrated into existing tooling.
 \subsection{Detection}
 \subsection{Ethical Challenges}
 The importance DeepFake-Detection only gets elevated by the ethical challenges 
-which arrise from their usage.
-The ability to create arbitrary fake images bears multiple risks for missuse:
-Firstly there is the aspekt of Missinformation or Propaganda. 
-An example would be showing images or videos of political candidates saying or
-doing things they have not done.
-Another aspect would be Pornography, since it is possible to change faces on 
-other people bodies, here lies abig potential for non consentual pornography.
-These aspects can be seperated into two main categories, the risk for public or
-political figures and the rist for private individuals.
-The first category is defined by attackers having more resources at hand for an
-attack, e.g.\ an organized action agains a specific political candidate.
-The second category in contrast is defined by attackers not having that many
-resources, e.g.\ an angry ex-boyfriend.
-Even though the second category might be of great risk, since not that much 
-might be needed to spread a basic amound of false information, in the end their
-capabilites are somewhat limited.
-Changes in the ease of use and availablility of DeepFake technologies would 
-mostly affect the second category,
-since the first already has the necessary resources in the first place.
-Depending on this ease of use, most attackers might be expected to fall into the
-second category.
-These might not use the best technology which potentiall makes them succeptable
-for DeepFake Detection methods.
-In this respect the DeepFakes created for the first category might pose more of
-a challenge.
+which arise from their usage. The ability to create arbitrary fake images bears
+multiple risks for misuse: Firstly there is the aspect of misinformation, or
+propaganda. An example would be showing images or videos of political candidates
+saying or doing things they have not done. Another aspect would be Pornography,
+since it is possible to change faces on other people bodies, here lies a big
+potential for non consensual pornography. These aspects can be separated into
+two main categories, the risk for public or political figures and the risk for
+private individuals. The first category is defined by attackers having more
+resources at hand for an attack, e.g.\ an organized action against a specific
+political candidate. The second category in contrast is defined by attackers not
+having that many resources, e.g.\ an angry ex-boyfriend. Even though the second
+category might be of great risk, since not that much might be needed to spread a
+basic amount of false information, in the end their capabilities are somewhat
+limited. Changes in the ease of use and availability of DeepFake technologies
+would mostly affect the second category, since the first already has the
+necessary resources in the first place. Depending on this ease of use, most
+attackers might be expected to fall into the second category. These might not
+use the best technology which potentially makes them susceptible for DeepFake
+detection methods. In this respect the DeepFakes created for the first category
+might pose more of a challenge.
  
-\subsection{Taxonomy}
