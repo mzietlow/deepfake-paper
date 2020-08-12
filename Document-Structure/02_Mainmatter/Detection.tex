@@ -1,6 +1,7 @@
 \section{Detection of DeepFakes}
-We will focus on the detection of DeepFakes, even though there is also some 
-research in the area of prevention.
+The area of DeepFake detection can be separated in different approaches.
+There will be a broad introduction to each approach with an example, however there
+are many more different shapes of these approaches.
 
 \subsection{Physical Approach}
 A human on average blinks every two to ten seconds with a duration of \(0.1-0.4\)
@@ -45,7 +46,7 @@ to
     \item also check for frequency of blinking~\cite{li_ictu_2018} or
     \item change to completely different approaches also used in medicine of
     checking skin color to check for heart rate or similar aspects~\cite{pishori_detecting_2020}.
-\end{enumerate*}\todo{In Ictu Oculi: Exposing AI Created Fake Videos by Detecting Eye Blinking}
+\end{enumerate*}
 
 \subsection{Artifact-Based Approach}
 The algorithms for creating DeepFakes might introduce artifacts in the resulting
@@ -77,12 +78,7 @@ Similar to the physical approach, this one also requires constant adaptation to
 improvements in the creational models which only need to improve to incorporate
 dealing with the artifacts which are used for DeepFake detection\cite{mirsky_creation_2020}.
 
-
 \subsection{Undirected Approaches}
 In this approach, the focus is not on the artifacts, but on training generic
 \glspl{nn}, which can select relevant features, informing about whether or not
 an image is fake. \todo{owards open-set identity preserving facesynthesis}
-
-\subsection{Research Challenges}
-When researching DeepFake detection, there is the challenge of having high
-quality data sets to train and test models on~\cite{li_celeb-df_2019}.
