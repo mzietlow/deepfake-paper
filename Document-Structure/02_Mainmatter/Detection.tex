@@ -30,26 +30,27 @@ previous and next images. The \gls{lrcn}-model enables capturing this by utilizi
 a combination of \glspl{cnn} and \glspl{lstm}~\cite{donahue_long-term_2014}.
 The \gls{cnn} is responsible for the feature detection, in this case the eye
 region into discriminative features~\cite{li_ictu_2018,donahue_long-term_2014}. 
-These are fed into the sequence learning which is implemented as a \gls{rnn} 
-with a \gls{lstm}. This enables considering information from previous eye states.
-The result of this step is then passed to another \gls{nn} containing a fully
-connected layer which generated the probability of an eye being closed or open~\cite{li_ictu_2018}.
+These are fed into the sequence learning which is implemented as an \gls{lstm}.
+This enables considering information from previous eye states. The result of
+this step is then passed to another \gls{nn} containing a fully connected layer
+which generated the probability of an eye being closed or open~\cite{li_ictu_2018}.
 
 \par
 This is only an example of using physical human characteristics to determine a
 videos or pictures authenticity. \textcite{li_ictu_2018} describe in 
 their paper critically how this might be circumvented by improving the DeepFake
 generation models to also incorporate eye blinking. Here there are possibilities
-to on the one hand also check for frequency of blinking~\cite{li_ictu_2018} or 
-change to completely different approaches also used in medicine of checking skin
-color to check for heart rate or similar aspects~\cite{pishori_detecting_2020}.
-
-\todo{In Ictu Oculi: Exposing AI Created Fake Videos by Detecting Eye Blinking}
+to 
+\begin{enumerate*}[a.)]
+    \item also check for frequency of blinking~\cite{li_ictu_2018} or
+    \item change to completely different approaches also used in medicine of
+    checking skin color to check for heart rate or similar aspects~\cite{pishori_detecting_2020}.
+\end{enumerate*}\todo{In Ictu Oculi: Exposing AI Created Fake Videos by Detecting Eye Blinking}
 
 \subsection{Artifact-Based Approach}
 The algorithms for creating DeepFakes might introduce artifacts in the resulting
-images. These artifacts can be used to discover DeepFakes and lay the foundation for
-this type of detection.
+images. These artifacts can be used to discover DeepFakes and lay the foundation
+for this type of detection.
 \todo{Deepfake Video Detection through Optical Flow Based CNN}
 
 \subsection{Undirected Approaches}
