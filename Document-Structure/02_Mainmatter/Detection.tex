@@ -69,9 +69,10 @@ might be interesting to verifiy this specific methods validity.
 \todo{Deepfake Video Detection through Optical Flow Based CNN}
 
 \par
-Another approache which showed in \cite{li_celeb-df_2019} the overall highest
-average \gls{auc} was \gls{dsp-fwa} which was introduced by \cite{he_spatial_2014}
-\todo{Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition}
+Another approache which showed in~\cite{li_celeb-df_2019} the overall highest
+average \gls{auc} was \gls{dsp-fwa} which was introduced by~\cite{he_spatial_2014}
+and focuses on discovering face warping artifacts which are introduced by the 
+resizing operations in DeepFake creation algorithms~\cite{li_celeb-df_2019,he_spatial_2014}.
 
 \par
 Similar to the physical approach, this one also requires constant adaptation to
@@ -81,4 +82,12 @@ dealing with the artifacts which are used for DeepFake detection\cite{mirsky_cre
 \subsection{Undirected Approaches}
 In this approach, the focus is not on the artifacts, but on training generic
 \glspl{nn}, which can select relevant features, informing about whether or not
-an image is fake. \todo{owards open-set identity preserving facesynthesis}
+an image is fake. 
+\textcite{xuan_generalization_2019} introduced blur and noise to the training phase
+to force their model to focus on more intrinsic aspects which in turn should improve
+the generalization abilities.
+This in contrary to other approaches which focus on for example pixel density,
+as described by \textcite{mirsky_creation_2020}.
+
+
+
