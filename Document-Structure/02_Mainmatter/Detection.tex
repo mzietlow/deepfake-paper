@@ -8,12 +8,12 @@ seconds~\cite{li_ictu_2018}. Based on this spontaneous eye blinking would be
 expected in DeepFake videos. This however is not always the case. An explanation
 for this circumstance lies in the training data for \glspl{gan}. As 
 \textcite{li_ictu_2018} describe, with an exposure time of \(1/30\) of a second,
-the likelihood of being captured on a picture while blinking is around \(7.5\%\)
-~\cite{li_ictu_2018}. In combination with the fact that most people might prefer
-pictures of them when they do not blink online, is commonly thought to be one of
-the major reasons for this discrepancy~\cite{pishori_detecting_2020}. Based on
-this observation, the frequency of blinking can be measured and result in a 
-likelihood of a video being a DeepFake.
+the likelihood of being captured on a picture while blinking is around \(7.5\%\)~\cite{li_ictu_2018}.
+In combination with the fact that most people might prefer pictures of them when
+they do not blink online, is commonly thought to be one of the major reasons for
+this discrepancy~\cite{pishori_detecting_2020}. Based on this observation, the
+frequency of blinking can be measured and result in a likelihood of a video being
+a DeepFake.
 
 \par
 In order for the determine the state of an eye, it its necessary to first determine
@@ -24,13 +24,12 @@ of the face in a unified coordinate space which, provided it is not already,
 move the face to the center of the image~\cite{li_ictu_2018}.
 
 \par
-The next aspect is the prediction of an eyes new state, for this a \gls{lrcn}
-~\cite{donahue_long-term_2014} is used. This is because blinking of human eyes
-displays strong dependencies to previous and next images. The \gls{lrcn}-model 
-enables capturing this by utilizing a combination of \glspl{cnn} and \glspl{lstm}
-~\cite{donahue_long-term_2014}. The \gls{cnn} is responsible for the feature
-detection, in this case the eye region into discriminative features
-~\cite{li_ictu_2018,donahue_long-term_2014}. 
+The next aspect is the prediction of an eyes new state, for this a \gls{lrcn}~\cite{donahue_long-term_2014}
+is used. This is because blinking of human eyes displays strong dependencies to
+previous and next images. The \gls{lrcn}-model enables capturing this by utilizing
+a combination of \glspl{cnn} and \glspl{lstm}~\cite{donahue_long-term_2014}.
+The \gls{cnn} is responsible for the feature detection, in this case the eye
+region into discriminative features~\cite{li_ictu_2018,donahue_long-term_2014}. 
 These are fed into the sequence learning which is implemented as a \gls{rnn} 
 with a \gls{lstm}. This enables considering information from previous eye states.
 The result of this step is then passed to another \gls{nn} containing a fully
