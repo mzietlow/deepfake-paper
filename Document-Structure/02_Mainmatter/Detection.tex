@@ -51,7 +51,32 @@ to
 The algorithms for creating DeepFakes might introduce artifacts in the resulting
 images. These artifacts can be used to discover DeepFakes and lay the foundation
 for this type of detection.
+
+\par
+\textcite{amerini_deepfake_2019} describe one of these approaches utilizing optical
+flow between different frames.
+Optical flow or also called motion estimation aims at the discovery of motion
+between an observed object and the observer in two consecutive frames~\cite{beauchemin_computation_1995}.
+This is used to find discrepancies between real images and DeepFakes in regard
+to the movement of the face~\cite{amerini_deepfake_2019}.
+\textcite{amerini_deepfake_2019} tested their models on the FaceForensics++ data
+with a resulting accurrecy of \(81.61\%\).~\textcite{li_celeb-df_2019} found that
+on this data set was the data set with the comparatively highest \gls{auc} of 
+\(82.3\%\). This hints to the model not being that successfull, however its
+performance on a more challengeing data set like CELEB-DF~\cite{li_celeb-df_2019}
+might be interesting to verifiy this specific methods validity.
 \todo{Deepfake Video Detection through Optical Flow Based CNN}
+
+\par
+Another approache which showed in \cite{li_celeb-df_2019} the overall highest
+average \gls{auc} was \gls{dsp-fwa} which was introduced by \cite{he_spatial_2014}
+\todo{Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition}
+
+\par
+Similar to the physical approach, this one also requires constant adaptation to
+improvements in the creational models which only need to improve to incorporate
+dealing with the artifacts which are used for DeepFake detection\cite{mirsky_creation_2020}.
+
 
 \subsection{Undirected Approaches}
 In this approach, the focus is not on the artifacts, but on training generic
