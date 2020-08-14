@@ -72,7 +72,38 @@ to:
     \end{minipage}
     \caption{Selection of generative models, adopted from~\cite{Mirsky.2020}}\label{fig:generative-models}
 \end{figure}
-\subsection{The simplest way to create DeepFakes}
-\blindtext[4]
-\subsection{The sophisticated way to create DeepFakes}
-\blindtext[4]
+\subsection{The simplest way to create mimical puppetry}
+When trying to create believable mimical puppetry, there are three goals
+we try to reach in final image \(x_g\):\todo{explain that \(x_t:target,\ x_s:source\) and so on}
+\begin{enumerate}[1.)]
+    \item we try to preserve the mimic of \(x_s\) in \(x_g\), s.t.\ \(\text{mimic}(x_s)==\text{mimic}(x_g)\)
+    \item we try to preserve the identity target \(x_t\) in \(x_g\), s.t.\ \(\text{id}(x_t)==\text{id}(x_g)\)
+    \item we try to generate a realistically looking image.
+\end{enumerate}
+\subsubsection{Preserving the mimic}
+We can take these goals and construct a model after them. To tackle the first
+goal, one must define how to numerically represent the mimic of a face, \(\text{mimic}(x)=\mathord{?}\).
+To such representations are
+\begin{enumerate*}[a.)]
+    \item facial landmarks or
+    \item \gls{facs}
+\end{enumerate*}
+\paragraph{Facial Landmarks}
+Facial landmarks are a predefined set of points in a face. The amount of points
+measured differs between detectors, common objectives are the facial outline,
+eyebrows, eyes, nose, and mouth~\cite[cf.][]{Johnston.2018}. Each point is then
+placed in either a two or three dimensional grid. However, facial landmarks
+measure not expression but mainly the position of parts in the face. To make
+them applicable, further processing is required as was shown in~\cite{Ha.2020}
+
+\paragraph{\acrfull*{facs}}\todo{fix}
+The \gls{facs} was introduced in 1978 by \textcite{Ekman.1978}. They grouped
+muscle regions in the face to 58 so called \glspl{au} which are represented
+by a vector. Further, \glspl{au} are (more or less) invariant (i.e.\ the same
+expression is encoded similarly) between faces, their position and scale~\cite{Pham.2018}.
+
+\par
+
+
+
+\subsection{The simplest way to create Face Swaps}
