@@ -34,45 +34,22 @@ to:
     trying to discern correctly between \(x\sim X\) and \(x_g\sim \text{G}(p_z)\).
     That way we are able to generate realistically looking faces similar to that
     of the target~\cite{Goodfellow.2014}.
-
-    \item[\glspl{rnn}] DeepFakes are usually produced in a video setting.
-    \Glspl{rnn} are especially built to handle such sequential data and are thus
-    a useful extension to \glspl{gan} and \glspl{ed}. At the initial time step,
-    \(t=1\), the \gls{rnn} takes input values \(x^{(1)}\) and produces two
-    outputs: DeepFake image \(x_g^{(1)}\) and hidden state \(h^{(1)}\). While
-    \(x_g^{(1)}\) can be used as the first frame in the video, \(h^{(1)}\) together
-    with \(x^{(2)}\) are fed into the model at \(t=2\) to produce the second
-    DeepFake frame \(x_g^{(2)}\). This way, the model can preserve knowledge
-    about previous frames. More advanced types of \gls{rnn} include \glspl{lstm}
-    and \glspl{gru}~\cite[\nopp 404\psqq]{Goodfellow.2016}.
 \end{description}
 % Figure of basic network types
-\begin{figure}[htp]
-    \captionsetup[subfigure]{justification=centering}
+\begin{figure}[h]
     \centering
-    \begin{minipage}[s][3.3cm]{.23\columnwidth}
-        \begin{subfigure}{\columnwidth}
-            \includegraphics[width=3.3cm]{nns_ed.pdf}
-            \caption{}\label{subfig:ed}
-        \end{subfigure}
-        \vfil
-        \begin{subfigure}{\columnwidth}
-            \includegraphics[width=3.3cm]{nns_gan.pdf}
-            \caption{}\label{subfig:gan}
-        \end{subfigure}
-    \end{minipage}
-    \begin{subfigure}{.2\columnwidth}
-        \includegraphics[height=3.7cm]{nns_rnn.pdf}
-        \caption{}\label{subfig:rnn}
-    \end{subfigure}
-    \begin{minipage}[s][3.7cm]{.17\columnwidth}
-        \begin{subfigure}{\columnwidth}
-            \includegraphics[width=2.5cm]{nns_description.pdf}
-        \end{subfigure}\vfil
-    \end{minipage}
+    \subcaptionbox{\label{subfig:ed}}{
+        \includegraphics[width=3.3cm]{nns_ed.pdf}
+    }
+    \subcaptionbox{\label{subfig:gan}}{
+        \includegraphics[width=3cm]{nns_gan.pdf}
+    }
+    \subcaptionbox{}{
+        \includegraphics[width=2.5cm]{nns_description.pdf}
+    }
     \caption{Selection of generative models, adopted from~\cite{Mirsky.2020}}\label{fig:generative-models}
 \end{figure}
-\subsection{The simplest way to create mimical puppetry}
+
 When trying to create believable mimical puppetry, there are three goals
 we try to reach in final image \(x_g\):\todo{explain that \(x_t:target,\ x_s:source\) and so on}
 \begin{enumerate}[1.)]
@@ -80,11 +57,11 @@ we try to reach in final image \(x_g\):\todo{explain that \(x_t:target,\ x_s:sou
     \item we try to preserve the identity target \(x_t\) in \(x_g\), s.t.\ \(\text{id}(x_t)=\text{id}(x_g)\)\label{goal:preserve-identity}
     \item we try to generate a realistically looking image\label{goal:increase-realism}
 \end{enumerate}
-\subsubsection{Generating an image at all}
+\subsection{Generating an image at all}
 We can take these goals and construct a model after them. In order to generate
 an image we utilize the \gls{ed}-model from \cref{subfig:ed}
 
-\subsubsection{Preserving Mimic}
+\subsection{Preserving Mimic}
 To tackle the goal~\ref{goal:mimic-perservation}, one must define how to
 numerically represent the mimic of a face, \(\text{mimic}(x)=\mathord{?}\).
 Two such representations are
@@ -112,13 +89,15 @@ in \glspl{au} between final DeepFake \(\text{AUE}(x_g)=a_g\) and driver
 \(\min{(\left|a_g-a_s\right|)}\). A visualization of this is given in \cref{fig:gath-aue}.
 \begin{figure}[htp]
     \center{}
-    \includegraphics[width=.7\textwidth]{gath_aue.pdf}
+    \vspace{-1em}
+    \includegraphics[width=.65\textwidth]{gath_aue.pdf}
     \caption{\gls{ed}-architecture enriched with \glspl{au}, where \(\bigoplus\)
     denotes concatenation. Grey paths are used solely in training, inspired
     by~\cite{Mirsky.2020, Pham.2018}}\label{fig:gath-aue}
+    \vspace{-1em}
 \end{figure}
 
-\subsubsection{Preserving Identity}
+\subsection{Preserving Identity}
 Training the model on preserving the identity of the target requires a training
 set of known targets, e.g.\ \cite{Chen.2015,Cao.2014,Tarres.2011} consisting of 
 about 2000 identities~\cite{Pham.2018}. One can then learn an image classifier
@@ -128,24 +107,26 @@ converges, it can be added to the training procedure of the model, minimizing
 the cross-entropy identity loss \(\mathcal{L}_{id}\) (see \cref{eq:identity-loss}).
 A visualization of this is given in \cref{fig:gath-aue-id}.
 \begin{figure}[htp]
+    \vspace{-1em}
     \center{}
-    \includegraphics[width=.7\textwidth]{gath_aue_id.pdf}
+    \includegraphics[width=.6\textwidth]{gath_aue_id.pdf}
     \caption{\gls{ed}-architecture enriched with \glspl{au} and an identity
     constraint, where \(\bigoplus\) denotes concatenation, \(x'_t\) is a randomly
     chosen image with identity of the target \(t\). Grey paths are used solely
     in training, inspired by~\cite{Mirsky.2020, Pham.2018}}\label{fig:gath-aue-id}
+    \vspace{-1em}
 \end{figure}
 
-\subsubsection{Increase Realism}
+\subsection{Increase Realism}
 Finally to increase realism (goal~\ref{goal:increase-realism}), a \gls{gan}-inspired
 discriminator \gls{disc} (see \cref{subfig:gan}) is adopted.
 \begin{figure}[htp]
+    \vspace{-1em}
     \center{}
-    \includegraphics[width=.7\textwidth]{gath_aue_id_disc.pdf}
+    \includegraphics[width=.6\textwidth]{gath_aue_id_disc.pdf}
     \caption{\gls{ed}-architecture enriched with \glspl{au}, an identity
     and an realism constraint, where \(\bigoplus\) denotes concatenation,
     \(x'_t\) is a randomly chosen image with identity of the target \(t\). Grey
     paths are used solely in training, inspired by~\cite{Mirsky.2020, Pham.2018}}\label{fig:gath-aue-id-disc}
+    \vspace{-1em}
 \end{figure}
-
-\subsection{The simplest way to create Face Swaps}
