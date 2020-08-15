@@ -76,34 +76,76 @@ to:
 When trying to create believable mimical puppetry, there are three goals
 we try to reach in final image \(x_g\):\todo{explain that \(x_t:target,\ x_s:source\) and so on}
 \begin{enumerate}[1.)]
-    \item we try to preserve the mimic of \(x_s\) in \(x_g\), s.t.\ \(\text{mimic}(x_s)==\text{mimic}(x_g)\)
-    \item we try to preserve the identity target \(x_t\) in \(x_g\), s.t.\ \(\text{id}(x_t)==\text{id}(x_g)\)
-    \item we try to generate a realistically looking image.
+    \item we try to preserve the mimic of \(x_s\) in \(x_g\), s.t.\ \(\text{mimic}(x_s)=\text{mimic}(x_g)\)\label{goal:mimic-perservation}
+    \item we try to preserve the identity target \(x_t\) in \(x_g\), s.t.\ \(\text{id}(x_t)=\text{id}(x_g)\)\label{goal:preserve-identity}
+    \item we try to generate a realistically looking image\label{goal:increase-realism}
 \end{enumerate}
-\subsubsection{Preserving the mimic}
-We can take these goals and construct a model after them. To tackle the first
-goal, one must define how to numerically represent the mimic of a face, \(\text{mimic}(x)=\mathord{?}\).
-To such representations are
+\subsubsection{Generating an image at all}
+We can take these goals and construct a model after them. In order to generate
+an image we utilize the \gls{ed}-model from \cref{subfig:ed}
+
+\subsubsection{Preserving Mimic}
+To tackle the goal~\ref{goal:mimic-perservation}, one must define how to
+numerically represent the mimic of a face, \(\text{mimic}(x)=\mathord{?}\).
+Two such representations are
 \begin{enumerate*}[a.)]
     \item facial landmarks or
     \item \gls{facs}
 \end{enumerate*}
-\paragraph*{Facial Landmarks}
-Facial landmarks are a predefined set of points in a face. The amount of points
-measured differs between detectors, common objectives are the facial outline,
-eyebrows, eyes, nose, and mouth~\cite[cf.][]{Johnston.2018}. Each point is then
-placed in either a two or three dimensional grid. However, facial landmarks
-measure not expression but mainly the position of parts in the face. To make
-them applicable, further processing is required as was shown in~\cite{Ha.2020}
+For simplicity, only \gls{facs} is considered. A discussion of facial landmarks
+can be found in e.g.\ \cite{Ha.2020}
 
-\paragraph*{\acrfull*{facs}}\todo{fix}
+\paragraph*{Facial Action Coding System (FACS)}
 The \gls{facs} was introduced in 1978 by \textcite{Ekman.1978}. They grouped
-muscle regions in the face to 58 so called \glspl{au} which are represented
-by a vector. Further, \glspl{au} are (more or less) invariant (i.e.\ the same
-expression is encoded similarly) between faces, their position and scale~\cite{Pham.2018}.
+muscle regions of the face to 58 so called \glspl{au} which can be represented
+by vectors. A major advantage of \glspl{au} over facial landmarks is that they
+are (more or less) invariant (i.e.\ the same expression is encoded similarly)
+between faces, head angle and scale~\cite{Pham.2018}.
 
 \par
+Following this discussion, \gls{facs} is used. \Glspl{au} might be computed using
+a generic \gls{aue}, e.g.\ \cite{Senechal.2015}. The \gls{au}-vectors are then
+concatenated to the encoded representation (\(\text{En}(x_t)=e\)) and used in
+the \gls{de}-step. To enforce goal~\ref{goal:mimic-perservation}, the difference
+in \glspl{au} between final DeepFake \(\text{AUE}(x_g)=a_g\) and driver
+\(\text{AUE}(x_s)=a_s\)\todo{decide driver or source} are minimized in training:
+\(\min{(\left|a_g-a_s\right|)}\). A visualization of this is given in \cref{fig:gath-aue}.
+\begin{figure}[htp]
+    \center{}
+    \includegraphics[width=.7\textwidth]{gath_aue.pdf}
+    \caption{\gls{ed}-architecture enriched with \glspl{au}, where \(\bigoplus\)
+    denotes concatenation. Grey paths are used solely in training, inspired
+    by~\cite{Mirsky.2020, Pham.2018}}\label{fig:gath-aue}
+\end{figure}
 
+\subsubsection{Preserving Identity}
+Training the model on preserving the identity of the target requires a training
+set of known targets, e.g.\ \cite{Chen.2015,Cao.2014,Tarres.2011} consisting of 
+about 2000 identities~\cite{Pham.2018}. One can then learn an image classifier
+\(I\), e.g.\ MobileNet~\cite{Howard.2017} (for its simplicity and speed) to
+assign the correct identity to a given image. Once the classifier \(I\)
+converges, it can be added to the training procedure of the model, minimizing
+the cross-entropy identity loss \(\mathcal{L}_{id}\) (see \cref{eq:identity-loss}).
+A visualization of this is given in \cref{fig:gath-aue-id}.
+\begin{figure}[htp]
+    \center{}
+    \includegraphics[width=.7\textwidth]{gath_aue_id.pdf}
+    \caption{\gls{ed}-architecture enriched with \glspl{au} and an identity
+    constraint, where \(\bigoplus\) denotes concatenation, \(x'_t\) is a randomly
+    chosen image with identity of the target \(t\). Grey paths are used solely
+    in training, inspired by~\cite{Mirsky.2020, Pham.2018}}\label{fig:gath-aue-id}
+\end{figure}
 
+\subsubsection{Increase Realism}
+Finally to increase realism (goal~\ref{goal:increase-realism}), a \gls{gan}-inspired
+discriminator \gls{disc} (see \cref{subfig:gan}) is adopted.
+\begin{figure}[htp]
+    \center{}
+    \includegraphics[width=.7\textwidth]{gath_aue_id_disc.pdf}
+    \caption{\gls{ed}-architecture enriched with \glspl{au}, an identity
+    and an realism constraint, where \(\bigoplus\) denotes concatenation,
+    \(x'_t\) is a randomly chosen image with identity of the target \(t\). Grey
+    paths are used solely in training, inspired by~\cite{Mirsky.2020, Pham.2018}}\label{fig:gath-aue-id-disc}
+\end{figure}
 
 \subsection{The simplest way to create Face Swaps}

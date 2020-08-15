@@ -163,6 +163,15 @@
 
 %%%%% /Workarounds %%%%%
 
+%%%%% Custom Commands %%%%%
+% Math Equation Parameter description environment:
+\newenvironment{conditions}
+  {\par\vspace{\abovedisplayskip}\noindent
+   \tabularx{\columnwidth}{>{\(}l<{\)} @{}>{\({}}c<{{}\)}@{} >{\raggedright\arraybackslash}X}}
+  {\endtabularx\par\vspace{\belowdisplayskip}}
+%%%%% /Custom Commands %%%%%
+
+
 \author{
 	Malte Zietlow, Finn Wellershaus \\ 
 	\\
@@ -194,8 +203,6 @@
 \input{Document-Structure/02_Mainmatter/Conclusion.tex}
 
 % Backmatter
-\input{Document-Structure/03_Backmatter/Appendices.tex}
-
 % Bibliography and lists 
 {\hypersetup{hidelinks}
     \printbibliography{}
@@ -203,4 +210,6 @@
     \listoffigures
     \listoftables
 }
+\input{Document-Structure/03_Backmatter/Appendices.tex}
+
 \end{document}
