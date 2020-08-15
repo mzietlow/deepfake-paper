@@ -1,17 +1,26 @@
 \section{Introduction}
-Some introductory words.
+The aim of this paper is
+\begin{enumerate*}[a.)]
+    \item to give the reader an intuition of the process of creating manipulated
+    images via the generic content manipulation technique named \textit{DeepFake}
+    and
+    \item to give an overview of approaches to detect such manipulated footage.
+\end{enumerate*}
 
 \subsection{Structure}
-Firstly some background information will be given. These will contain, among 
-other things, a quick overview over ethical challenges arrising from the missuse
-and spread of DeepFake technology.
-This is followed by an overview of the creation of many-to-many DeepFakes.
-Based on this there is a presentation of different approaches to combat DeepFakes.
+In the remainder of this section, the limitations to the scope of this paper are
+presented. Then in \cref{sect:background}, an overview and definition of DeepFakes
+is given, including also a discussion of ethical challenges.
+This is followed by an overview of the creation of many-to-many DeepFakes in
+\cref{sect:creation-of-deepfakes}. Finally, different approaches to detecting
+DeepFakes are given in \cref{sect:detection}.
 
-\subsection{Limitations}
-This paper has a limited scope, allowing for further studies of its contents.
-The focus will be on many-to-many DeepFakes of mimics and their detection.
-This means that DeepFakes of text or audio signals will not be part of this work.
-Furthermore, the topics of one-to-one and one-to-many DeepFakes will not be
-dealt with. This is because we consider many-to-many DeepFakes to be of greater
-risk due to their more generic nature and larger applicability.
+\subsection{Limitations}\label{subsect:limitations}
+While there are multiple \textit{flavors} of DeepFakes (see \cref{subsubsect:deepfake-flavors}),
+this study explicitly limits its scope to many-to-many mimical puppetry and its
+detection. This means that neither DeepFakes of text or audio signals,
+face-replacement or body reenactment are part of this work. This is done mainly
+due to spatial constraints as in their core principles the techniques are mostly
+similar. Beyond that, one-to-one and one-to-many DeepFakes (see \cref{subsubsect:generalizability-deepfakes})
+are not examined. This restriction is made because we consider many-to-many DeepFakes
+to be of greater risk due to their more generic nature and thus larger applicability.

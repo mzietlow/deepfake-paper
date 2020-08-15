@@ -1,8 +1,8 @@
 \section{Background}\label{sect:background}
 \subsection{DeepFakes}\label{subsect:deepfakes}
 In late 2017, \gls{redditor} \textit{deepfake} began publishing pornographic footage
-on \url{https://www.reddit.com/r/deepfakes}, where he replaced the actors` faces,
-with those of celebrities, without the latter`s consent. As a consequence, he
+on \url{https://www.reddit.com/r/deepfakes}, where he replaced the actors' faces,
+with those of celebrities, without their consent. As a consequence, he
 received increased media coverage in early 2018, after the release of a first 
 article and interview on vice-motherboard~\cite{Cole.2017}. While he coined the
 term \textit{DeepFake} for face-\textit{replacement} and face-\textit{reenactment}
@@ -23,9 +23,13 @@ approaches. Arguably, at some point, they might even merge together with editing
 software utilizing machine learning more and DeepFake technology becoming accessible 
 and integrated into existing tooling.
 
-\subsubsection{Generalizability of Generative Models for DeepFakes}
+\subsubsection{Flavors of DeepFakes}\label{subsubsect:deepfake-flavors}
+Face swap, face replacement, face reenactment, body reenactment\todo{write falvors of deepfakes}
+
+
+\subsubsection{Generalizability of Generative Models for DeepFakes}\label{subsubsect:generalizability-deepfakes}
 In the design of \glspl{nn} for the creation of DeepFakes, one must choose the
-targets to which it is applicable:
+targets to which it is applicable~\cite[cf.][]{Mirsky.2020}:
 \begin{description}
     \item[one-to-one] after training, the approach is applicable only to a
     single target and driver
@@ -33,9 +37,9 @@ targets to which it is applicable:
     single target, but arbitrary drivers
     \item[many-to-many] after training, the approach is applicable both to
     arbitrary targets and drivers
-\end{description}\cite[cf.][]{Mirsky.2020}
-In this paper, only \textbf{many-to-many} approaches are presented because they
-are trained only once for a more general result than \textbf{one-to-one} or
+\end{description}
+As mentioned in \cref{subsect:limitations}, only \textbf{many-to-many} approaches
+are presented because they are more generic than \textbf{one-to-one} or
 \textbf{many-to-one}.
 
 \subsection{Ethical Challenges}

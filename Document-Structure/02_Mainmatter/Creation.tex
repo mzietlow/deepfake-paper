@@ -50,10 +50,10 @@ to:
     \caption{Selection of generative models, adopted from~\cite{Mirsky.2020}}\label{fig:generative-models}
 \end{figure}
 
-When trying to create believable mimical puppetry, there are three goals
-we try to reach in final image \(x_g\):\todo{explain that \(x_t:target,\ x_s:source\) and so on}
+When trying to create believable mimical puppetry, there are three \textbf{goals}
+we try to reach in final image \(x_g\):\todo{explain that \(x_t:target,\ x_d:driver\) and so on}
 \begin{enumerate}[1.)]
-    \item we try to preserve the mimic of \(x_s\) in \(x_g\), s.t.\ \(\text{mimic}(x_s)=\text{mimic}(x_g)\)\label{goal:mimic-perservation}
+    \item we try to preserve the mimic of \(x_d\) in \(x_g\), s.t.\ \(\text{mimic}(x_d)=\text{mimic}(x_g)\)\label{goal:mimic-perservation}
     \item we try to preserve the identity target \(x_t\) in \(x_g\), s.t.\ \(\text{id}(x_t)=\text{id}(x_g)\)\label{goal:preserve-identity}
     \item we try to generate a realistically looking image\label{goal:increase-realism}
 \end{enumerate}
@@ -62,7 +62,7 @@ We can take these goals and construct a model after them. In order to generate
 an image we utilize the \gls{ed}-model from \cref{subfig:ed}
 
 \subsection{Preserving Mimic}
-To tackle the goal~\ref{goal:mimic-perservation}, one must define how to
+To tackle goal~\ref{goal:mimic-perservation}, one must define how to
 numerically represent the mimic of a face, \(\text{mimic}(x)=\mathord{?}\).
 Two such representations are
 \begin{enumerate*}[a.)]
@@ -85,7 +85,7 @@ a generic \gls{aue}, e.g.\ \cite{Senechal.2015}. The \gls{au}-vectors are then
 concatenated to the encoded representation (\(\text{En}(x_t)=e\)) and used in
 the \gls{de}-step. To enforce goal~\ref{goal:mimic-perservation}, the difference
 in \glspl{au} between final DeepFake \(\text{AUE}(x_g)=a_g\) and driver
-\(\text{AUE}(x_s)=a_s\)\todo{decide driver or source} are minimized in training:
+\(\text{AUE}(x_d)=a_s\)\todo{decide driver or source} are minimized in training:
 \(\min{(\left|a_g-a_s\right|)}\). A visualization of this is given in \cref{fig:gath-aue}.
 \begin{figure}[htp]
     \center{}
@@ -117,7 +117,7 @@ A visualization of this is given in \cref{fig:gath-aue-id}.
     \vspace{-1em}
 \end{figure}
 
-\subsection{Increase Realism}
+\subsection{Increasing Realism}
 Finally to increase realism (goal~\ref{goal:increase-realism}), a \gls{gan}-inspired
 discriminator \gls{disc} (see \cref{subfig:gan}) is adopted.
 \begin{figure}[htp]
