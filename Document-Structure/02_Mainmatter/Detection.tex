@@ -1,24 +1,24 @@
 \section{Detection of DeepFakes}\label{sect:detection}
-The methods for detecting DeepFakes usually do not inhibit major differences
+The methods for detecting \textit{DeepFakes} usually do not inhibit major differences
 between cases like face swapping or face mimicking.
 Instead, they focus on more general concepts like artifacts which are introduced
-while using \glspl{gan} or more general aspects of DeepFakes.
-The area of DeepFake detection can be separated in different approaches.
+while using \glspl{gan} or more general aspects of \textit{DeepFakes}.
+The area of \textit{DeepFake} detection can be separated in different approaches.
 There will be a broad introduction to each approach with an example, however there
 are many more different shapes of these approaches.
 
 \subsection{Physical Approach}
 A human on average blinks every two to ten seconds with a duration of \(0.1-0.4\)
 seconds~\cite{li_ictu_2018}. Based on this spontaneous eye blinking would be
-expected in DeepFake videos. This however is not always the case. An explanation
-for this circumstance lies in the training data for \glspl{gan}. As 
+expected in \textit{DeepFake} videos. This however is not always the case. An
+explanation for this circumstance lies in the training data for \glspl{gan}. As 
 \textcite{li_ictu_2018} describe, with an exposure time of \(1/30\) of a second,
 the likelihood of being captured on a picture while blinking is around \(7.5\%\)~\cite{li_ictu_2018}.
 In combination with the fact that most people might prefer pictures of them when
 they do not blink online, is commonly thought to be one of the major reasons for
 this discrepancy~\cite{pishori_detecting_2020}. Based on this observation, the
 frequency of blinking can be measured and result in a likelihood of a video being
-a DeepFake.
+a \textit{DeepFake}.
 
 \par
 In order for the determine the state of an eye, it its necessary to first determine
@@ -43,7 +43,7 @@ which generated the probability of an eye being closed or open~\cite{li_ictu_201
 \par
 This is only an example of using physical human characteristics to determine a
 videos or pictures authenticity. \textcite{li_ictu_2018} describe in 
-their paper critically how this might be circumvented by improving the DeepFake
+their paper critically how this might be circumvented by improving the \textit{DeepFake}
 generation models to also incorporate eye blinking. Here there are possibilities
 to 
 \begin{enumerate*}[a.)]
@@ -53,8 +53,8 @@ to
 \end{enumerate*}
 
 \subsection{Artifact-Based Approach}
-The algorithms for creating DeepFakes might introduce artifacts in the resulting
-images. These artifacts can be used to discover DeepFakes and lay the foundation
+The algorithms for creating \textit{DeepFakes} might introduce artifacts in the resulting
+images. These artifacts can be used to discover \textit{DeepFakes} and lay the foundation
 for this type of detection.
 
 \par
@@ -62,7 +62,7 @@ for this type of detection.
 flow between different frames.
 Optical flow or also called motion estimation aims at the discovery of motion
 between an observed object and the observer in two consecutive frames~\cite{beauchemin_computation_1995}.
-This is used to find discrepancies between real images and DeepFakes in regard
+This is used to find discrepancies between real images and \textit{DeepFakes} in regard
 to the movement of the face~\cite{amerini_deepfake_2019}.
 \textcite{amerini_deepfake_2019} tested their models on the FaceForensics++ data
 with a resulting accurrecy of \(81.61\%\).~\textcite{li_celeb-df_2019} found that
@@ -70,18 +70,17 @@ on this data set was the data set with the comparatively highest \gls{auc} of
 \(82.3\%\). This hints to the model not being that successfull, however its
 performance on a more challengeing data set like CELEB-DF~\cite{li_celeb-df_2019}
 might be interesting to verifiy this specific methods validity.
-\todo{Deepfake Video Detection through Optical Flow Based CNN}
 
 \par
 Another approache which showed in~\cite{li_celeb-df_2019} the overall highest
 average \gls{auc} was \gls{dsp-fwa} which was introduced by~\cite{he_spatial_2014}
 and focuses on discovering face warping artifacts which are introduced by the 
-resizing operations in DeepFake creation algorithms~\cite{li_celeb-df_2019,he_spatial_2014}.
+resizing operations in \textit{DeepFake} creation algorithms~\cite{li_celeb-df_2019,he_spatial_2014}.
 
 \par
 Similar to the physical approach, this one also requires constant adaptation to
 improvements in the creational models which only need to improve to incorporate
-dealing with the artifacts which are used for DeepFake detection\cite{mirsky_creation_2020}.
+dealing with the artifacts which are used for \textit{DeepFake} detection\cite{mirsky_creation_2020}.
 
 \subsection{Undirected Approaches}
 In this approach, the focus is not on the artifacts, but on training generic
