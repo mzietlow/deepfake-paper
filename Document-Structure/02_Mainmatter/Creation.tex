@@ -6,8 +6,8 @@ For example, they are able to generate unique images of human faces, based on
 previously observed ones~\cite{Karras.2019}.
 
 \par
-Generative models are thus the focus of techniques for creating DeepFakes. As
-this serves as an introduction to the creation of DeepFakes, we limit the scope
+Generative models are thus the focus of techniques for creating \textit{DeepFakes}. As
+this serves as an introduction to the creation of \textit{DeepFakes}, we limit the scope
 to:
 % Description of basic network types
 \begin{description}[leftmargin=0cm]
@@ -84,7 +84,7 @@ Following this discussion, \gls{facs} is used. \Glspl{au} might be computed usin
 a generic \gls{aue}, e.g.\ \cite{Senechal.2015}. The \gls{au}-vectors are then
 concatenated to the encoded representation (\(\text{En}(x_t)=e\)) and used in
 the \gls{de}-step. To enforce goal~\ref{goal:mimic-perservation}, the difference
-in \glspl{au} between final DeepFake \(\text{AUE}(x_g)=a_g\) and driver
+in \glspl{au} between final \textit{DeepFake} \(\text{AUE}(x_g)=a_g\) and driver
 \(\text{AUE}(x_d)=a_d\) are minimized in training: \(\min{(\left|a_g-a_d\right|)}\).
 A visualization of this is given in \cref{fig:gath-aue}.
 \begin{figure}[htp]
