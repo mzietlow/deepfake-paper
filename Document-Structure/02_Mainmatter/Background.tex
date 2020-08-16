@@ -24,7 +24,20 @@ software utilizing machine learning more and \textit{DeepFake} technology becomi
 accessible and integrated into existing tooling.
 
 \subsubsection{Flavors of DeepFakes}\label{subsubsect:deepfake-flavors}
-Face swap, face replacement, face reenactment, body reenactment\todo{write falvors of deepfakes}
+Broadly \textit{DeepFakes} can be sorted into two categories, as described by~\textcite{mirsky_creation_2020}:
+There is a source \textit{s} and a target \textit{t}
+
+\begin{enumerate}
+    \item[\textit{Reenacment}] Here the expression of \textit{s} is used to drive
+    the expression of \textit{t}~\cite{mirsky_creation_2020}.
+    \item[\textit{Replacement}] In this case, some part of \textit{t} is replaced
+    by the corresponding part of \textit{s}. An example would be the swapping of
+    \textit{t}s face with the one from \textit{s}.
+\end{enumerate}
+
+Mimic-puppetry falls in the category of expression reenacment, since the face of
+\textit{s} is used to drive the facial expression of \textit{t}.
+\todo{write falvors of deepfakes}
 
 
 \subsubsection{Generalizability of Generative Models for DeepFakes}\label{subsubsect:generalizability-deepfakes}
