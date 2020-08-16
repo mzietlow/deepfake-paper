@@ -1,54 +1,52 @@
 \section{Detection of DeepFakes}\label{sect:detection}
-The methods for detecting \textit{DeepFakes} usually do not inhibit major differences
+The methods of detecting \textit{DeepFakes} usually do not inhibit major differences
 between cases like face swapping or face mimicking.
 Instead, they focus on more general concepts like artifacts which are introduced
 while using \glspl{gan} or more general aspects of \textit{DeepFakes}.
 The area of \textit{DeepFake} detection can be separated in different approaches.
-There will be a broad introduction to each approach with an example, however there
+Hereafter, there will be a broad introduction to each approach with an example; however, there
 are many more different shapes of these approaches.
 
 \subsection{Physical Approach}
 A human on average blinks every two to ten seconds with a duration of \(0.1-0.4\)
-seconds~\cite{li_ictu_2018}. Based on this spontaneous eye blinking would be
-expected in \textit{DeepFake} videos. This however is not always the case. An
+seconds~\cite{li_ictu_2018}. Based on this, spontaneous eye blinking would be
+expected in \textit{DeepFake} videos. This, however, is not always the case. An
 explanation for this circumstance lies in the training data for \glspl{gan}. As 
 \textcite{li_ictu_2018} describe, with an exposure time of \(1/30\) of a second,
 the likelihood of being captured on a picture while blinking is around \(7.5\%\)~\cite{li_ictu_2018}.
 In combination with the fact that most people might prefer pictures of them when
 they do not blink online, is commonly thought to be one of the major reasons for
-this discrepancy~\cite{pishori_detecting_2020}. Based on this observation, the
-frequency of blinking can be measured and result in a likelihood of a video being
-a \textit{DeepFake}.
+this discrepancy~\cite{pishori_detecting_2020}. Based on this observation, measuring the frequency of blinking can serve as a method of detection of
+\textit{DeepFake} videos.
 
 \par
-In order for the determine the state of an eye, it its necessary to first determine
-where the eye is located. This is done in the preprocessing-phase. Here the facial
+In order to determine the state of the eye, it its necessary to first determine
+where the eye is located. This is done in the preprocessing-phase. Here, the facial
 landmarks of the pictures are extracted from each face area~\cite{li_ictu_2018}.
 To deal with changes in the orientation of the face, there is first an alignment
-of the face in a unified coordinate space which, provided it is not already,
-move the face to the center of the image~\cite{li_ictu_2018}.
+of the face in a unified coordinate space which moves the face towards the center of the image~\cite{li_ictu_2018}, provided it is not already centered.
 
 \par
-The next aspect is the prediction of an eyes new state, for this a \gls{lrcn}~\cite{donahue_long-term_2014}
-is used. This is because blinking of human eyes displays strong dependencies to
-previous and next images. The \gls{lrcn}-model enables capturing this by utilizing
+The next step is the prediction of the eye's new state. For this, a \gls{lrcn}~\cite{donahue_long-term_2014}
+is used. This is because the blinking of human eyes displays strong dependencies to
+previous and next images. The \gls{lrcn}-model enables capturing this by using
 a combination of \glspl{cnn} and \glspl{lstm}~\cite{donahue_long-term_2014}.
 The \gls{cnn} is responsible for the feature detection, in this case the eye
-region into discriminative features~\cite{li_ictu_2018,donahue_long-term_2014}. 
-These are fed into the sequence learning which is implemented as an \gls{lstm}.
+region, into discriminative features~\cite{li_ictu_2018,donahue_long-term_2014}. 
+These are fed into the sequence learning which is implemented as a \gls{lstm}.
 This enables considering information from previous eye states. The result of
 this step is then passed to another \gls{nn} containing a fully connected layer
-which generated the probability of an eye being closed or open~\cite{li_ictu_2018}.
+which has generated the probability of an eye being closed or open~\cite{li_ictu_2018}.
 
 \par
 This is only an example of using physical human characteristics to determine a
-videos or pictures authenticity. \textcite{li_ictu_2018} describe in 
+video or pictures' authenticity. \textcite{li_ictu_2018} describe in 
 their paper critically how this might be circumvented by improving the \textit{DeepFake}
 generation models to also incorporate eye blinking. Here there are possibilities
 to 
 \begin{enumerate*}[a.)]
     \item also check for frequency of blinking~\cite{li_ictu_2018} or
-    \item change to completely different approaches also used in medicine of
+    \item change to completely different approaches also used in medicine for
     checking skin color to check for heart rate or similar aspects~\cite{pishori_detecting_2020}.
 \end{enumerate*}
 
@@ -60,7 +58,7 @@ for this type of detection.
 \par
 \textcite{amerini_deepfake_2019} describe one of these approaches utilizing optical
 flow between different frames.
-Optical flow or also called motion estimation aims at the discovery of motion
+Optical flow, or also called motion estimation, aims at the discovery of motion
 between an observed object and the observer in two consecutive frames~\cite{beauchemin_computation_1995}.
 This is used to find discrepancies between real images and \textit{DeepFakes} in regard
 to the movement of the face~\cite{amerini_deepfake_2019}.
@@ -72,8 +70,8 @@ performance on a more challengeing data set like CELEB-DF~\cite{li_celeb-df_2019
 might be interesting to verifiy this specific methods validity.
 
 \par
-Another approache which showed in~\cite{li_celeb-df_2019} the overall highest
-average \gls{auc} was \gls{dsp-fwa} which was introduced by~\cite{he_spatial_2014}
+Another approach which showed in~\cite{li_celeb-df_2019} the overall highest
+average \gls{auc} was \gls{dsp-fwa}, which was introduced by~\cite{he_spatial_2014}
 and focuses on discovering face warping artifacts which are introduced by the 
 resizing operations in \textit{DeepFake} creation algorithms~\cite{li_celeb-df_2019,he_spatial_2014}.
 
@@ -89,7 +87,7 @@ an image is fake.
 \textcite{xuan_generalization_2019} introduced blur and noise to the training phase
 to force their model to focus on more intrinsic aspects which in turn should improve
 the generalization abilities.
-This in contrary to other approaches which focus on for example pixel density,
+This in contrary to other approaches which focus on, for example, pixel density,
 as described by \textcite{mirsky_creation_2020}.
 
 
