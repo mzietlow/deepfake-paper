@@ -27,17 +27,17 @@ accessible and integrated into existing tooling.
 Broadly \textit{DeepFakes} can be sorted into two categories, as described by~\textcite{mirsky_creation_2020}:
 There is a source \textit{s} and a target \textit{t}
 
-\begin{enumerate}
-    \item[\textit{Reenacment}] Here the expression of \textit{s} is used to drive
-    the expression of \textit{t}~\cite{mirsky_creation_2020}.
-    \item[\textit{Replacement}] In this case, some part of \textit{t} is replaced
+\begin{description}
+    \item[Reenacment] Here the expression of \textit{s} is used to drive
+    the expression of \textit{t}~\cite{mirsky_creation_2020}. The source is
+    therefore also called driver \textit{d}.
+    \item[Replacement] In this case, some part of \textit{t} is replaced
     by the corresponding part of \textit{s}. An example would be the swapping of
     \textit{t}s face with the one from \textit{s}.
-\end{enumerate}
+\end{description}
 
-Mimic-puppetry falls in the category of expression reenacment, since the face of
-\textit{s} is used to drive the facial expression of \textit{t}.
-\todo{write falvors of deepfakes}
+Mimic-puppetry falls in the category of expression reenactment, since the face of
+\textit{d} is used to drive the facial expression of \textit{t}.
 
 
 \subsubsection{Generalizability of Generative Models for DeepFakes}\label{subsubsect:generalizability-deepfakes}
