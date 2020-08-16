@@ -85,14 +85,14 @@ a generic \gls{aue}, e.g.\ \cite{Senechal.2015}. The \gls{au}-vectors are then
 concatenated to the encoded representation (\(\text{En}(x_t)=e\)) and used in
 the \gls{de}-step. To enforce goal~\ref{goal:mimic-perservation}, the difference
 in \glspl{au} between final DeepFake \(\text{AUE}(x_g)=a_g\) and driver
-\(\text{AUE}(x_d)=a_s\)\todo{decide driver or source} are minimized in training:
-\(\min{(\left|a_g-a_s\right|)}\). A visualization of this is given in \cref{fig:gath-aue}.
+\(\text{AUE}(x_d)=a_d\) are minimized in training: \(\min{(\left|a_g-a_d\right|)}\).
+A visualization of this is given in \cref{fig:gath-aue}.
 \begin{figure}[htp]
     \center{}
     \vspace{-1em}
     \includegraphics[width=.65\textwidth]{gath_aue.pdf}
     \caption{\gls{ed}-architecture enriched with \glspl{au}, where \(\bigoplus\)
-    denotes concatenation. Grey paths are used solely in training, inspired
+    denotes concatenation. Grey paths are used solely in training. Inspired
     by~\cite{Mirsky.2020, Pham.2018}}\label{fig:gath-aue}
     \vspace{-1em}
 \end{figure}
@@ -110,10 +110,9 @@ A visualization of this is given in \cref{fig:gath-aue-id}.
     \vspace{-1em}
     \center{}
     \includegraphics[width=.6\textwidth]{gath_aue_id.pdf}
-    \caption{\gls{ed}-architecture enriched with \glspl{au} and an identity
-    constraint, where \(\bigoplus\) denotes concatenation, \(x'_t\) is a randomly
-    chosen image with identity of the target \(t\). Grey paths are used solely
-    in training, inspired by~\cite{Mirsky.2020, Pham.2018}}\label{fig:gath-aue-id}
+    \caption{Architecture from \cref{fig:gath-aue}, enriched with an identity
+    constraint, where \(x'_t\) is a randomly chosen image with identity of the target
+    \(t\). Inspired by~\cite{Mirsky.2020, Pham.2018}}\label{fig:gath-aue-id}
     \vspace{-1em}
 \end{figure}
 
@@ -124,10 +123,8 @@ discriminator \gls{disc} (see \cref{subfig:gan}) is adopted.
     \vspace{-1em}
     \center{}
     \includegraphics[width=.6\textwidth]{gath_aue_id_disc.pdf}
-    \caption{\gls{ed}-architecture enriched with \glspl{au}, an identity
-    and an realism constraint, where \(\bigoplus\) denotes concatenation,
-    \(x'_t\) is a randomly chosen image with identity of the target \(t\). Grey
-    paths are used solely in training, inspired by~\cite{Mirsky.2020, Pham.2018}}\label{fig:gath-aue-id-disc}
+    \caption{Architecture from \cref{fig:gath-aue-id}, enriched with a realism
+    constraint. Inspired by~\cite{Mirsky.2020, Pham.2018}}\label{fig:gath-aue-id-disc}
     \vspace{-1em}
 \end{figure}
 \todo{add example images to the abstract}
