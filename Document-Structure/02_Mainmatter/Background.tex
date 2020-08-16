@@ -2,7 +2,7 @@
 
 \subsubsection{DeepFakes and CheapFakes}
 In this work, a further distinction between the so called CheapFakes and \textit{DeepFakes}
-is made. On the one hand, CheapFakes are produced by using contemporary video- 
+is made. On the one hand, CheapFakes are produced by using contemporary video 
 and picture editing software. The name CheapFake should under no circumstance be
 interpreted as an assessment of their effectiveness since they can still be used
 to effectively fool users. An example of this usage might be a video of US House
@@ -15,19 +15,19 @@ software utilizing machine learning more and \textit{DeepFake} technology becomi
 accessible and integrated into existing tooling.
 
 \subsubsection{Flavors of DeepFakes}\label{subsubsect:deepfake-flavors}
-Broadly \textit{DeepFakes} can be sorted into two categories, as described by~\textcite{mirsky_creation_2020}:
+Broadly, \textit{DeepFakes} can be sorted into two categories, as described by~\textcite{mirsky_creation_2020}:
 There is a source \textit{s} and a target \textit{t}
 
 \begin{description}
-    \item[Reenacment] Here the expression of \textit{s} is used to drive
+    \item[Reenacment]: Here, the expression of \textit{s} is used to drive
     the expression of \textit{t}~\cite{mirsky_creation_2020}. The source is
     therefore also called driver \textit{d}.
-    \item[Replacement] In this case, some part of \textit{t} is replaced
+    \item[Replacement]: In this case, some part of \textit{t} is replaced
     by the corresponding part of \textit{s}. An example would be the swapping of
-    \textit{t}s face with the one from \textit{s}.
+    \textit{t}'s face with the one from \textit{s}.
 \end{description}
 
-Mimic-puppetry falls in the category of expression reenactment, since the face of
+Mimic-puppetry falls in the category of expression reenactment since the face of
 \textit{d} is used to drive the facial expression of \textit{t}.
 
 
@@ -36,36 +36,29 @@ In the design of \glspl{nn} for the creation of \textit{DeepFakes}, one must cho
 targets to which it is applicable~\cite[cf.][]{Mirsky.2020}:
 \begin{description}
     \item[one-to-one] after training, the approach is applicable only to a
-    single target and driver
+    single target and driver;
     \item[many-to-one] after training, the approach is applicable only to a
-    single target, but arbitrary drivers
+    single target, but arbitrary drivers;
     \item[many-to-many] after training, the approach is applicable both to
-    arbitrary targets and drivers
+    arbitrary targets and drivers.
 \end{description}
 As mentioned in \cref{subsect:limitations}, only \textbf{many-to-many} approaches
-are presented because they are more generic than \textbf{one-to-one} or
+are presented in this paper because they are more generic than \textbf{one-to-one} or
 \textbf{many-to-one}.
 
 \subsection{Ethical Challenges}
-The importance of \textit{DeepFake}-Detection increases together with the ethical
+The importance of \textit{DeepFake} detection increases together with the ethical
 challenges which arise from the use of this technology. The ability to create
-arbitrary fake images bears multiple risks for misuse: Firstly, there is the
-aspect of misinformation and propaganda. For example, showing images or videos
-of political candidates saying things they have not said can incriminate
+arbitrary fake images bears multiple risks for misuse. Firstly, there is the
+aspect of misinformation and propaganda. For example, this can be made by showing images or videos
+of political candidates saying things they have not said and that can incriminate
 them. Moreover, another aspect to take into consideration would be pornography,
-since it is possible to change faces to other people´s bodies, which can lead to
-non-consensual pornography. Following these two dimensions, there are two groups
-at risk: public or political figures and private individuals. The first category
+since it is possible to change faces to other people's bodies, which can lead to
+non-consensual pornography. Following these dimensions, there are two types of attacks: to public or political figures and to private individuals. The first category
 is defined by attackers having more resources at hand for an attack, e.g.\ an
-organized action against a specific political candidate. The second category in 
-contrast is defined by attackers not having that many resources, e.g.\ an angry 
-ex-boyfriend. Even though the second category might be of great risk, since not 
-that much might be needed to spread a basic amount of false information, in the 
-end their capabilities are somewhat limited. Changes in the ease of use and 
-availability of \textit{DeepFake} technologies would mostly affect the second category, 
-since the first already has the necessary resources in the first place. Depending 
-on this ease of use, most attackers might be expected to fall into the second 
-category. These might not use the best technology which potentially makes them 
-susceptible for \textit{DeepFake} detection methods. In this respect the \textit{DeepFakes}
-created for the first category might pose more of a challenge.
- 
+organized action against a specific political candidate. The second category, in 
+contrast, is defined by the attackers' lack of adequate resources, e.g.\ an angry 
+ex-boyfriend. Even though the second category might pose a real risk since not 
+that much effort might be needed to spread a basic amount of false information, in the 
+end, the attacker's capabilities are somewhat limited. However, changes in the ease of use and 
+availability of \textit{DeepFake} technologies can affect its uses targeting private individuals.
