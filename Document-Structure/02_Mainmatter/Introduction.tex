@@ -1,11 +1,11 @@
 \section{Introduction}
 In late 2017, \gls{redditor} \textit{deepfake} began publishing pornographic footage
 on \url{https://www.reddit.com/r/deepfakes}, where he replaced the actors' faces
-with those of celebrities --- without their consent. As a consequence, he
+with those of celebrities --- without either consent. As a consequence, he
 received increased media coverage in early 2018, after the release of a first 
 article and interview on vice-motherboard~\cite{Cole.2017}. While he coined the
 term \textit{DeepFake} for face-\textit{replacement} and face-\textit{reenactment}
-technologies, both techniques were known previously in academia with research 
+technologies, both were already previously known in academia with research 
 dating back to at least 1997~\cite{Bregler.1997}.
 Following this however, there was an increased awareness for \textit{DeepFakes}
 which caused more research to be conducted, from \(3\) papers published in
@@ -16,7 +16,7 @@ well as resulting in first government action~\cite{senate_-_homeland_security_an
 The aim of this paper is
 \begin{enumerate*}[a.)]
     \item to give the reader an introduction to the process of creating manipulated
-    images via deep learning, i.e.\ creating \textit{DeepFakes}
+    images via deep learning, i.e.\ creating \textit{DeepFakes} and
     \item to give an overview on different approaches to the detection of such
     manipulated footage.
 \end{enumerate*}
@@ -24,9 +24,9 @@ The aim of this paper is
 \subsection{Structure}
 In the remainder of this section, the limitations to the scope of this paper are
 presented. Then, in \cref{sect:background}, a distinction between \textit{DeepFakes}
-and manual video manipulation is made,is given, including also a discussion of ethical challenges.
+and manual video manipulation is made, followed by a discussion of ethical challenges.
 This is followed by a summary of the creation of many-to-many \textit{DeepFakes}
-in \cref{sect:creation-of-deepfakes}. Finally, different methods of detecting
+in \cref{sect:creation-of-deepfakes}. Finally, different methods for detecting
 \textit{DeepFakes} can be found in \cref{sect:detection}.
 
 \subsection{Limitations}\label{subsect:limitations}
@@ -34,8 +34,9 @@ While there are multiple \textit{flavors} of \textit{DeepFakes} (see \cref{subsu
 this study explicitly works within the scope of many-to-many face reenactment and its
 detection. This means that neither \textit{DeepFakes} of text or audio signals,
 face-replacement or body reenactment are part of this work. This is mainly
-due to spatial constraints and considering that in their core principles the techniques are mostly
-similar. Beyond that, one-to-one and one-to-many \textit{DeepFakes} (see \cref{subsubsect:generalizability-deepfakes})
-are not examined. This restriction is made because we consider many-to-many \textit{DeepFakes}
+due to spatial constraints and considering that, in their core principles, the
+techniques are mostly equal. Beyond that, one-to-one and one-to-many
+\textit{DeepFakes} (see \cref{subsubsect:generalizability-deepfakes}) are not
+examined. This restriction is made because we consider many-to-many \textit{DeepFakes}
 to be of greater risk due to their more generic nature and thus larger applicability.
 \todo{unify all the sources, no duplications}

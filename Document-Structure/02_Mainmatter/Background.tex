@@ -1,7 +1,7 @@
 \section{Background}\label{sect:background}
 
 \subsection{DeepFakes and CheapFakes}
-In this work, a further distinction between the so called CheapFakes and \textit{DeepFakes}
+In this work, a distinction between the so called CheapFakes and \textit{DeepFakes}
 is made. On the one hand, CheapFakes are produced by using contemporary video 
 and picture editing software. The name CheapFake should under no circumstance be
 interpreted as an assessment of their effectiveness since they can still be used
@@ -19,34 +19,34 @@ Broadly, \textit{DeepFakes} can be sorted into two categories, as described by~\
 There is a source \textit{s} and a target \textit{t}
 
 \begin{description}
-    \item[Face Reenacment]: Here, the expression of \textit{s} is used to drive
+    \item[Face Reenacment] Here, the expression of \textit{s} is used to drive
     the expression of \textit{t}~\cite{mirsky_creation_2020}. The source is
     therefore also called driver \textit{d}.
-    \item[Replacement]: In this case, some part of \textit{t} is replaced
+    \item[Replacement] In this case, some part of \textit{t} is replaced
     by the corresponding part of \textit{s}. An example would be the swapping of
-    \textit{t}'s face with the one from \textit{s}.
+    \textit{t}'s face with the one from \textit{s}, preserving \textit{t}'s mimic.
 \end{description}
 
 \subsection{Generalizability of Generative Models for DeepFakes}\label{subsubsect:generalizability-deepfakes}
-In the design of \glspl{nn} for the creation of \textit{DeepFakes}, one must choose the
-targets to which it is applicable~\cite[cf.][]{Mirsky.2020}:
+In the design of \glspl{nn} for the creation of \textit{DeepFakes}, one must choose
+the range of targets to which it is applicable~\cite[cf.][]{Mirsky.2020}:
 \begin{description}
     \item[one-to-one] after training, the approach is applicable only to a
-    single target and driver;
+    single target and source/driver;
     \item[many-to-one] after training, the approach is applicable only to a
-    single target, but arbitrary drivers;
+    single target, but arbitrary sources/drivers;
     \item[many-to-many] after training, the approach is applicable both to
-    arbitrary targets and drivers.
+    arbitrary targets and sources/drivers.
 \end{description}
 As mentioned in \cref{subsect:limitations}, only \textbf{many-to-many} approaches
 are presented in this paper because they are more generic than \textbf{one-to-one} or
 \textbf{many-to-one}.
 
 \subsection{Ethical Challenges}
-The importance of \textit{DeepFake} detection increases together with the ethical
+The importance of \textit{DeepFake} detection in conjunction with the ethical
 challenges which arise from the use of this technology. The ability to create
 arbitrary fake images bears multiple risks for misuse. Firstly, there is the
-aspect of misinformation and propaganda. For example, this can be made by showing images or videos
+aspect of misinformation and propaganda. For example by showing images or videos
 of political candidates saying things they have not said and that can incriminate
 them. Moreover, another aspect to take into consideration would be pornography,
 since it is possible to change faces to other people's bodies, which can lead to
@@ -57,4 +57,5 @@ contrast, is defined by the attackers' lack of adequate resources, e.g.\ an angr
 ex-boyfriend. Even though the second category might pose a real risk since not 
 that much effort might be needed to spread a basic amount of false information, in the 
 end, the attacker's capabilities are somewhat limited. However, changes in the ease of use and 
-availability of \textit{DeepFake} technologies can affect its uses targeting private individuals.
+availability of \textit{DeepFake} technologies can affect its uses towards targeting
+private individuals.
