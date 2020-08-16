@@ -1,6 +1,6 @@
 \section{Background}\label{sect:background}
 
-\subsubsection{DeepFakes and CheapFakes}
+\subsection{DeepFakes and CheapFakes}
 In this work, a further distinction between the so called CheapFakes and \textit{DeepFakes}
 is made. On the one hand, CheapFakes are produced by using contemporary video 
 and picture editing software. The name CheapFake should under no circumstance be
@@ -14,12 +14,12 @@ approaches. Arguably, at some point, they might even merge together with editing
 software utilizing machine learning more and \textit{DeepFake} technology becoming
 accessible and integrated into existing tooling.
 
-\subsubsection{Flavors of DeepFakes}\label{subsubsect:deepfake-flavors}
+\subsection{Flavors of DeepFakes}\label{subsubsect:deepfake-flavors}
 Broadly, \textit{DeepFakes} can be sorted into two categories, as described by~\textcite{mirsky_creation_2020}:
 There is a source \textit{s} and a target \textit{t}
 
 \begin{description}
-    \item[Reenacment]: Here, the expression of \textit{s} is used to drive
+    \item[Face Reenacment]: Here, the expression of \textit{s} is used to drive
     the expression of \textit{t}~\cite{mirsky_creation_2020}. The source is
     therefore also called driver \textit{d}.
     \item[Replacement]: In this case, some part of \textit{t} is replaced
@@ -27,11 +27,7 @@ There is a source \textit{s} and a target \textit{t}
     \textit{t}'s face with the one from \textit{s}.
 \end{description}
 
-Mimic-puppetry falls in the category of expression reenactment since the face of
-\textit{d} is used to drive the facial expression of \textit{t}.
-
-
-\subsubsection{Generalizability of Generative Models for DeepFakes}\label{subsubsect:generalizability-deepfakes}
+\subsection{Generalizability of Generative Models for DeepFakes}\label{subsubsect:generalizability-deepfakes}
 In the design of \glspl{nn} for the creation of \textit{DeepFakes}, one must choose the
 targets to which it is applicable~\cite[cf.][]{Mirsky.2020}:
 \begin{description}
