@@ -90,12 +90,12 @@ in \glspl{au} between final \textit{DeepFake} \(\text{AUE}(x_g)=a_g\) and driver
 A visualization of this is given in \cref{fig:gath-aue}.
 \begin{figure}[htp]
     \center{}
-    \vspace{-1em}
-    \includegraphics[width=.65\textwidth]{gath_aue.pdf}
+    \vspace{-.5em}
+    \includegraphics[width=.58\textwidth]{gath_aue.pdf}
     \caption{\gls{ed}-architecture enriched with \glspl{au}, where \(\bigoplus\)
     denotes concatenation. Grey paths are used solely in training. Inspired
     by~\cite{Mirsky.2020, Pham.2018}}\label{fig:gath-aue}
-    \vspace{-1em}
+    \vspace{-2em}
 \end{figure}
 
 \subsection{Preserving Identity}
@@ -108,23 +108,23 @@ converges, it can be added to the training procedure of the model, minimizing
 the cross-entropy identity loss \(\mathcal{L}_{id}\) (see \cref{eq:identity-loss}).
 A visualization of this is given in \cref{fig:gath-aue-id}.
 \begin{figure}[htp]
-    \vspace{-1em}
+    \vspace{-.5em}
     \center{}
     \includegraphics[width=.6\textwidth]{gath_aue_id.pdf}
     \caption{Architecture from \cref{fig:gath-aue}, enriched with an identity
     constraint, where \(x'_t\) is a randomly chosen image with identity of the target
     \(t\). Inspired by~\cite{Mirsky.2020, Pham.2018}}\label{fig:gath-aue-id}
-    \vspace{-1em}
+    \vspace{-2em}
 \end{figure}
 
 \subsection{Increasing Realism}
 Finally, to increase realism (goal~\ref{goal:increase-realism}), a \gls{gan}-inspired
 discriminator \gls{disc} (see \cref{subfig:gan}) is adopted.
 \begin{figure}[htp]
-    \vspace{-1em}
+    \vspace{-.5em}
     \center{}
     \includegraphics[width=.6\textwidth]{gath_aue_id_disc.pdf}
     \caption{Architecture from \cref{fig:gath-aue-id}, enriched with a realism
     constraint. Inspired by~\cite{Mirsky.2020, Pham.2018}}\label{fig:gath-aue-id-disc}
-    \vspace{-1em}
+    \vspace{-2em}
 \end{figure}

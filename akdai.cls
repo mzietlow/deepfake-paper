@@ -13,7 +13,7 @@
 \ProcessOptions
 
 % 10 pt
-\LoadClass[10.8pt,a4paper,fleqn,abstract=true]{scrartcl}
+\LoadClass[11pt,a4paper,fleqn,abstract=true]{scrartcl}
 % Blocksatz durch LaTeX-Default
 % Satzspiegel
 \setlength{\textheight}{222mm}
