@@ -58,16 +58,16 @@ for this type of detection.
 \par
 \textcite{amerini_deepfake_2019} describe one of these approaches utilizing optical
 flow between different frames.
-Optical flow, or also called motion estimation, aims at the discovery of motion
+Optical flow, also called motion estimation, aims at the discovery of motion
 between an observed object and the observer in two consecutive frames~\cite{beauchemin_computation_1995}.
 This is used to find discrepancies between real images and \textit{DeepFakes} in regard
 to the movement of the face~\cite{amerini_deepfake_2019}.
 \textcite{amerini_deepfake_2019} tested their models on the FaceForensics++ data
-with a resulting accurrecy of \(81.61\%\).~\textcite{li_celeb-df_2019} found that
-on this data set was the data set with the comparatively highest \gls{auc} of 
-\(82.3\%\). This hints to the model not being that successfull, however its
-performance on a more challengeing data set like CELEB-DF~\cite{li_celeb-df_2019}
-might be interesting to verifiy this specific methods validity.
+with a resulting accuracy of \(81.61\%\).~\textcite{li_celeb-df_2019} found that
+on this data set also had the comparatively highest \gls{auc} of \(82.3\%\).
+This hints to the model not being that successful, verifying its performance on
+a more challenging data set like CELEB-DF~\cite{li_celeb-df_2019} poses
+an interesting direction for future research.
 
 \par
 Another approach which showed in~\cite{li_celeb-df_2019} the overall highest
@@ -77,18 +77,15 @@ resizing operations in \textit{DeepFake} creation algorithms~\cite{li_celeb-df_2
 
 \par
 Similar to the physical approach, this one also requires constant adaptation to
-improvements in the creational models which only need to improve to incorporate
+improvements in the generative models which only need to improve to incorporate
 dealing with the artifacts which are used for \textit{DeepFake} detection\cite{Mirsky.2020}.
 
 \subsection{Undirected Approaches}
-In this approach, the focus is not on the artifacts, but on training generic
+In these approaches, the focus is not on the artifacts, but on training generic
 \glspl{nn}, which can select relevant features, informing about whether or not
-an image is fake. 
+an image is fake.
 \textcite{xuan_generalization_2019} introduced blur and noise to the training phase
 to force their model to focus on more intrinsic aspects which in turn should improve
 the generalization abilities.
-This in contrary to other approaches which focus on, for example, pixel density,
-as described by \textcite{Mirsky.2020}.
-
-
-
+This is contrary to other approaches which focus on e.g.\ pixel density as
+described by \textcite{Mirsky.2020}.
